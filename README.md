@@ -16,3 +16,12 @@ cd
 git clone git@github.com:lollkebear/.dotfiles.git
 ./install
 ```
+
+### Set up local gitconfig
+```
+nvim ~/.gitconfig.local
+
+[user]
+  name = Your Name
+  email = your@email.com
+```
