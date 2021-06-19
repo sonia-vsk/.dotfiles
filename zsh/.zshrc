@@ -1,3 +1,8 @@
+for DOTFILE in `find ~/.dotfiles/system`
+do
+  [ -f $DOTFILE ] && source $DOTFILE
+done
+
 # export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 alias git='/usr/local/bin/git'
 # If you come from bash you might have to change your $PATH.
