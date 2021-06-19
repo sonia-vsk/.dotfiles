@@ -1,0 +1,41 @@
+{
+  "snippets.ultisnips.usePythonx": false,
+  "suggest.noselect": false,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "json",
+    "avsc",
+    "css",
+    "scss",
+    "markdown",
+    "html",
+    "yaml",
+    "ruby",
+    "erb"
+  ],
+  "tailwindCSS.cssLanguages": ["css", "sass", "scss"],
+  "tailwindCSS.htmlLanguages": ["erb", "html", "markdown"],
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.headwind.sortTailwindClasses": false,
+  "tailwindCSS.headwind.sortTailwindClassesOnWorkspace": false,
+  "css.validate": false,
+  "scss.validate": false,
+  "git.addGBlameToBufferVar": true,
+  "git.branchCharacter": " ",
+  "git.enableGutters": true,
+  "git.realtimeGutters": true,
+  "git.changedSign.text": " ",
+  "git.addedSign.text": " ",
+  "git.removedSign.text": " ",
+  "git.topRemovedSign.text": " ",
+  "git.changeRemovedSign.text": " ",
+  "git.changedDecorator": " ",
+  "git.conflictedDecorator": " ",
+  "git.stagedDecorator": " ",
+  "git.untrackedDecorator": " ",
+  "emmet.includeLanguages": {
+    "erb": "html",
+    "html.erb": "html"
+  }
+}

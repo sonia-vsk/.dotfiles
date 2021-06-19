@@ -5,7 +5,7 @@
 	trustctime = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [init]
 	defaultBranch = main
 [mergetool "sourcetree"]
