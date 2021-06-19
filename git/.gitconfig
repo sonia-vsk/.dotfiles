@@ -1,0 +1,17 @@
+[include]
+  path = ~/.gitconfig.local
+[alias]
+	com = checkout main
+[core]
+	excludesfile = ~/.gitignore_global
+	trustctime = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[init]
+	defaultBranch = main
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = ~/.stCommitMsg

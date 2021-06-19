@@ -3,3 +3,4 @@ echo "Installing.."
 
 # shell settings
 ln -sv ~/.dotfiles/zsh/.zshrc ~/.zshrc
+ln -sv ~/.dotfiles/git/.gitconfig ~/.gitconfig
