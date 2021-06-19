@@ -1,7 +1,5 @@
 [include]
   path = ~/.gitconfig.local
-[alias]
-	com = checkout main
 [core]
 	excludesfile = ~/.gitignore_global
 	trustctime = false
