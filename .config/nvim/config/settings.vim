@@ -4,8 +4,6 @@ set relativenumber                     " turn relative line numbers on
 set number relativenumber              " turn hybrid line numbers on
 set noshowmode                         " hide mode
 
-set autoindent
-
 colorscheme dogrun
 
 "" Whitespace
