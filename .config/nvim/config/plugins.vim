@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/plugged')
   " navigation
   Plug '/usr/local/opt/fzf'
   Plug 'scrooloose/nerdtree'
-  Plug 'christoomey/vim-tmux-navigator'
 
   " language tools
   Plug 'w0rp/ale'
@@ -26,7 +25,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Frontend
   Plug 'kchmck/vim-coffee-script'
-  Plug 'mattn/emmet-vim'
 
   " Ruby on Rails
   Plug 'vim-ruby/vim-ruby'
