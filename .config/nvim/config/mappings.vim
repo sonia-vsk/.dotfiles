@@ -6,4 +6,3 @@ noremap <Right> <Nop>
 
 " reload vim configs
 map <F5> :source ~/.config/nvim/init.vim<CR>
-autocmd BufWritePre *.html.erb :normal gg=G

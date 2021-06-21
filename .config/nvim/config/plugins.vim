@@ -25,13 +25,17 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Frontend
   Plug 'kchmck/vim-coffee-script'
+  Plug 'Chiel92/vim-autoformat'
+  Plug 'mattn/emmet-vim'
 
   " Ruby on Rails
   Plug 'vim-ruby/vim-ruby'
   Plug 'tpope/vim-endwise'
+  Plug 'tpope/vim-ragtag'
 
   " Editinng
   Plug 'tpope/vim-commentary'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 " Automatically install missing plugins on startup

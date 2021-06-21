@@ -38,9 +38,6 @@
     "erb": "html",
     "html.erb": "html"
   },
-  "html.filetypes": ["html.erb", "erb"],
-  "html.format.indentInnerHtml": true,
-  "html.autoClosingTags": true,
   "json.enable": true,
   "json.format.enable": true
 }
