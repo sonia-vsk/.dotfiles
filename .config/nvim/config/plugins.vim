@@ -37,7 +37,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Editinng
   Plug 'tpope/vim-commentary'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 call plug#end()
 
 " Automatically install missing plugins on startup
