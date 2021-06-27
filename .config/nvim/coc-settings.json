@@ -15,10 +15,8 @@
     "erb"
   ],
   "tailwindCSS.cssLanguages": ["css", "sass", "scss"],
-  "tailwindCSS.htmlLanguages": ["erb", "html", "markdown"],
+  "tailwindCSS.htmlLanguages": ["html.erb", "html", "markdown"],
   "tailwindCSS.emmetCompletions": true,
-  "tailwindCSS.headwind.sortTailwindClasses": false,
-  "tailwindCSS.headwind.sortTailwindClassesOnWorkspace": false,
   "css.validate": false,
   "scss.validate": false,
   "git.addGBlameToBufferVar": true,

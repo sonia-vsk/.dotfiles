@@ -1,3 +1,2 @@
-au BufWrite * :Autoformat
+au BufWrite *.html.erb :Autoformat
 au BufWrite *.avsc :Autoformat json
-au BufWrite * :Prettier

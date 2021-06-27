@@ -5,7 +5,5 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-stylelintplus',
     \ 'coc-snippets',
-    \ 'coc-tailwindcss',
-    \ 'coc-tailwind-intellisense',
     \ 'coc-yaml'
     \ ]
