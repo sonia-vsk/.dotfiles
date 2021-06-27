@@ -25,7 +25,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   " Frontend
   Plug 'kchmck/vim-coffee-script'
-  Plug 'Chiel92/vim-autoformat'
   Plug 'mattn/emmet-vim'
   Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
   Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
