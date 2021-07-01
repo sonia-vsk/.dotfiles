@@ -6,8 +6,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-  Plug 'neoclide/coc.nvim', {'branch': 'release'} " Stable version of coc
-  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " Keeping up to date with master
 
   " eye candy
   Plug 'wadackel/vim-dogrun'
