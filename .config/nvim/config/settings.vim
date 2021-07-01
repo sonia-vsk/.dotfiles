@@ -4,6 +4,10 @@ set relativenumber                     " turn relative line numbers on
 set number relativenumber              " turn hybrid line numbers on
 set noshowmode                         " hide mode
 
+filetype indent on
+set smartindent
+autocmd BufRead,BufWritePre *.html.erb normal gg=G``
+
 colorscheme dogrun
 
 "" Whitespace

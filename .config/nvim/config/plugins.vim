@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'mattn/emmet-vim'
   Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
   Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+  Plug 'othree/html5.vim'
 
   " Ruby on Rails
   Plug 'vim-ruby/vim-ruby'
