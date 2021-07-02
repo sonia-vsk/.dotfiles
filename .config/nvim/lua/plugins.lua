@@ -30,4 +30,6 @@ require 'paq-nvim' {
 
   'janko-m/vim-test';
   'benmills/vimux';
+
+  'w0rp/ale';
 }
