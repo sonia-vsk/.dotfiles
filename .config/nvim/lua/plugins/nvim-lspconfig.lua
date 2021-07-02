@@ -1,21 +1,31 @@
-local nvim_lsp = require('lspconfig')
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {'documentation', 'detail', 'additionalTextEdits'}
+}
 
-local on_attach = function(client)
-    require('completion').on_attach(client)
+local function setup_servers()
+  require'lspinstall'.setup()
+  local servers = require'lspinstall'.installed_servers()
+  for _, server in pairs(servers) do
+    require'lspconfig'[server].setup{capabilities = capabilities}
+  end
 end
 
-nvim_lsp.solargraph.setup{{ on_attach = on_attach }}
-nvim_lsp.html.setup{{ on_attach = on_attach }}
-nvim_lsp.cssls.setup{{ on_attach = on_attach }}
-nvim_lsp.tsserver.setup{{ on_attach = on_attach }}
-nvim_lsp.jsonls.setup{{ on_attach = on_attach }}
-nvim_lsp.yamlls.setup{{ on_attach = on_attach }}
-nvim_lsp.tailwindcss.setup{{ on_attach = on_attach }}
-nvim_lsp.stylelint_lsp.setup{
-  on_attach = on_attach,
+setup_servers()
+
+-- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
+require'lspinstall'.post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
+
+require('lspconfig').lua.setup {
   settings = {
-    stylelintplus = {
-      autoFixOnSave = true
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
     }
   }
 }
