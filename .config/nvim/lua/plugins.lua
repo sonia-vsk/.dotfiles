@@ -27,4 +27,7 @@ require 'paq-nvim' {
     run = 'yarn install',
     branch = 'release/0.x',
   };
+
+  'janko-m/vim-test';
+  'benmills/vimux';
 }

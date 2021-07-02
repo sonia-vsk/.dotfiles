@@ -8,4 +8,5 @@ require('plugins.nvim-compe')
 require('plugins.nvim-lspconfig')
 require('plugins.vim-prettier')
 require('plugins.nvim-treesitter')
+require('plugins.vim-test')
 
