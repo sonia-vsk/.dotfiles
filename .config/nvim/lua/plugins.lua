@@ -4,9 +4,8 @@ require 'paq-nvim' {
   'neovim/nvim-lspconfig';
   'kabouzeid/nvim-lspinstall';
 
-  'glepnir/spaceline.vim';
-  'ryanoasis/vim-devicons';
-  'airblade/vim-gitgutter';
+  'hoob3rt/lualine.nvim';
+  'kyazdani42/nvim-web-devicons';
 
   { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate' };
 
