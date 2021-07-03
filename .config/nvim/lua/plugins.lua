@@ -1,11 +1,14 @@
 require 'paq-nvim' {
   'savq/paq-nvim';
 
+  'neovim/nvim-lsp';
   'neovim/nvim-lspconfig';
   'kabouzeid/nvim-lspinstall';
 
   'hoob3rt/lualine.nvim';
   'kyazdani42/nvim-web-devicons';
+
+  'lewis6991/gitsigns.nvim';
 
   'Yggdroot/indentLine';
 
