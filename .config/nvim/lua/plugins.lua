@@ -23,12 +23,6 @@ require 'paq-nvim' {
   'benmills/vimux';
   'janko-m/vim-test';
 
-  {
-    'prettier/vim-prettier', -- prettier formatter
-    run = 'yarn install',
-    branch = 'release/0.x',
-  };
-
   'janko-m/vim-test';
   'benmills/vimux';
 
