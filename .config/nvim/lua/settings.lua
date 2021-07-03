@@ -13,7 +13,7 @@ vim.opt.backspace = 'indent,eol,start'
 
 vim.cmd('filetype indent on')
 vim.opt.smartindent = true
-vim.cmd('autocmd! bufread,bufwritepre *.html.erb normal gg=G``')
+vim.cmd('autocmd! bufread,bufwritepre *.html.erb,*.scss normal gg=G``')
 
 -- Searching
 vim.opt.hlsearch = true

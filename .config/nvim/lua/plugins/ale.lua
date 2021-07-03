@@ -1,6 +1,7 @@
 vim.g.ale_fixers = {
   javascript = {'prettier'},
   json = {'prettier'},
+  css = {'prettier'},
   ruby = {'rubocop'}
 }
 vim.g.ale_fixers["*"] = {"remove_trailing_lines", "trim_whitespace"}
