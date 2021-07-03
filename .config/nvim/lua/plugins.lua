@@ -7,6 +7,8 @@ require 'paq-nvim' {
   'hoob3rt/lualine.nvim';
   'kyazdani42/nvim-web-devicons';
 
+  'Yggdroot/indentLine';
+
   { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate' };
 
   'hrsh7th/nvim-compe';
@@ -29,6 +31,8 @@ require 'paq-nvim' {
 
   'janko-m/vim-test';
   'benmills/vimux';
+
+  'b3nj5m1n/kommentary';
 
   'w0rp/ale';
 }
