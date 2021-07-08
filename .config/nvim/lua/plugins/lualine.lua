@@ -1,5 +1,5 @@
 require('lualine').setup{
-  options = { theme  = 'palenight' },
+  options = { theme  = 'calvera-nvim' },
   sections = {
     lualine_a = {{'mode', upper = true}},
     lualine_b = {{"branch", icon = ''}},

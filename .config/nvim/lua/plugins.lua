@@ -7,6 +7,7 @@ require 'paq-nvim' {
 
   'hoob3rt/lualine.nvim';
   'kyazdani42/nvim-web-devicons';
+  'yashguptaz/calvera-dark.nvim';
 
   'lewis6991/gitsigns.nvim';
 
