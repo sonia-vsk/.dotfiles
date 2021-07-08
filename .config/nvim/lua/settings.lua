@@ -18,3 +18,5 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+
+vim.g.ruby_host_prog = '~/.rbenv/shims/neovim-ruby-host'
