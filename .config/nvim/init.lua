@@ -11,4 +11,4 @@ require('plugins.nvim-treesitter')
 require('plugins.vim-test')
 require('plugins.ale')
 require('plugins.gitsigns')
-
+require('plugins.emmet')

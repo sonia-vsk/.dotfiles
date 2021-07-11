@@ -33,4 +33,6 @@ require 'paq-nvim' {
   'b3nj5m1n/kommentary';
 
   'w0rp/ale';
+
+  'mattn/emmet-vim';
 }
