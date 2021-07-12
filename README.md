@@ -6,7 +6,7 @@ These are my personal dotfiles setup.
 
 #### Mac
 ```
-brew install neovim rbenv fzf
+brew install neovim rbenv fzf ripgrep
 ```
 
 ### Symlink files
