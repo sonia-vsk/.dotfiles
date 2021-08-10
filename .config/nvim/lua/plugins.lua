@@ -5,6 +5,7 @@ require 'paq-nvim' {
   'neovim/nvim-lspconfig';
   'kabouzeid/nvim-lspinstall';
 
+  'kdheepak/tabline.nvim';
   'hoob3rt/lualine.nvim';
   'kyazdani42/nvim-web-devicons';
   'yashguptaz/calvera-dark.nvim';
