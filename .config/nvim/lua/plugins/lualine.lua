@@ -1,10 +1,10 @@
-require('lualine').setup{
-  options = { theme  = 'calvera-nvim' },
+require("lualine").setup {
+  options = {theme = "calvera-nvim"},
   sections = {
-    lualine_a = {{'mode', upper = true}},
-    lualine_b = {{"branch", icon = ''}},
+    lualine_a = {{"mode", upper = true}},
+    lualine_b = {{"branch", icon = ""}},
     lualine_c = {
-      {'filename', file_status = true, full_path = true, shorten = true},
+      {"filename", file_status = true, full_path = true, shorten = true},
       "b:gitsigns_status"
     },
     lualine_x = {
@@ -12,9 +12,10 @@ require('lualine').setup{
       {
         "diagnostics",
         sources = {"nvim_lsp"}
-      }, 'filetype'
+      },
+      "filetype"
     },
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
+    lualine_y = {"progress"},
+    lualine_z = {"location"}
   }
 }

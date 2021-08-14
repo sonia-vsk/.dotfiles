@@ -9,6 +9,11 @@ These are my personal dotfiles setup.
 brew install neovim rbenv fzf ripgrep
 ```
 
+#### lua-fmt
+```
+ npm install -g lua-fmt
+```
+
 ### Symlink files
 
 ```
