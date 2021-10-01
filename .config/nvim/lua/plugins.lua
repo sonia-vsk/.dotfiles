@@ -19,10 +19,10 @@ require "paq-nvim" {
   "nvim-telescope/telescope.nvim",
   "benmills/vimux",
   "janko-m/vim-test",
-  "janko-m/vim-test",
   "benmills/vimux",
   "b3nj5m1n/kommentary",
   "w0rp/ale",
   "mhartington/formatter.nvim",
-  "mattn/emmet-vim"
+  "mattn/emmet-vim",
+  "AndrewRadev/tagalong.vim"
 }
