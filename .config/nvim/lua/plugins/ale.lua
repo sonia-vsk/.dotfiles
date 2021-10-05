@@ -2,11 +2,8 @@ vim.g.ale_fixers = {
   ["*"] = {"remove_trailing_lines", "trim_whitespace"},
   javascript = {"prettier"},
   json = {"prettier"},
-  css = {"prettier"},
-  ruby = {"rubocop"}
+  css = {"prettier"}
 }
-
-vim.g["ale_ruby_rubocop_executable"] = "bundle"
 
 vim.cmd("autocmd! bufnewfile,bufread *.avsc setlocal filetype=json")
 

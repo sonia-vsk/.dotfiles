@@ -11,13 +11,27 @@ require("formatter").setup(
             stdin = true
           }
         end
+      },
+      ruby = {
+        -- rubocop
+        function()
+          return {
+            exe = "rubocop", -- might prepend `bundle exec `
+            args = {"--auto-correct", "--stdin", "%:p", "2>/dev/null", "|", "awk 'f; /^====================$/{f=1}'"},
+            stdin = true,
+            cwd = vim.fn.expand("%:p:h")
+          }
+        end
       }
     }
   }
 )
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.lua FormatWrite
+  autocmd BufWritePost *.lua,*.rb FormatWrite
 augroup END
-]], true)
+]],
+  true
+)
