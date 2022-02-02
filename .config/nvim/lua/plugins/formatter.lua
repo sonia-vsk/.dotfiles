@@ -18,14 +18,14 @@ require("formatter").setup(
           return {
             exe = "rubocop", -- might prepend `bundle exec `
             args = {"--auto-correct", "--stdin", "%:p", "2>/dev/null", "|", "awk 'f; /^====================$/{f=1}'"},
-            stdin = true,
-            cwd = vim.fn.expand("%:p:h")
+            stdin = true
           }
         end
       }
     }
   }
 )
+
 vim.api.nvim_exec(
   [[
 augroup FormatAutogroup

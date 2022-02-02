@@ -17,4 +17,6 @@ cop() {
   rubocop "$1" -c .rubocop.yml --format html --out public/tmp/rubocop.html; open public/tmp/rubocop.html
 }
 
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$PATH:/path/to/elixir/bin"
+export PATH="/usr/local/opt/node@14/bin:$PATH"

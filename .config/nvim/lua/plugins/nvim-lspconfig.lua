@@ -1,31 +1,42 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {"documentation", "detail", "additionalTextEdits"}
+    properties = {"documentation", "detail", "additionalTextEdits"}
 }
 
-local function setup_servers()
-  require "lspinstall".setup()
-  local servers = require "lspinstall".installed_servers()
-  for _, server in pairs(servers) do
-    require "lspconfig"[server].setup {capabilities = capabilities}
-  end
-end
+local lsp_installer = require("nvim-lsp-installer")
 
-setup_servers()
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(
+    function(server)
+        local opts = {
+            capabilities = capabilities,
+            on_attach = function(client)
+                client.resolved_capabilities.document_formatting = true
+                client.resolved_capabilities.document_range_formatting = true
+            end
+        }
 
--- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-require "lspinstall".post_install_hook = function()
-  setup_servers() -- reload installed servers
-  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
-end
+        -- (optional) Customize the options passed to the server
+        -- if server.name == "tsserver" then
+        --     opts.root_dir = function() ... end
+        -- end
 
-require("lspconfig").lua.setup {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {"vim"}
+        -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+        -- before passing it onwards to lspconfig.
+        -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+        server:setup(opts)
+    end
+)
+
+--[[ require("lspconfig").solargraph.setup(
+  {
+    autoformat = true, -- EXPERIMENTAL
+    settings = {
+      solargraph = {
+        diagnostics = true
       }
     }
   }
-}
+) ]]
