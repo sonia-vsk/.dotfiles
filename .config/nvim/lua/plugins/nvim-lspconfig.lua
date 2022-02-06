@@ -1,42 +1,51 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {"documentation", "detail", "additionalTextEdits"}
-}
+local lsp_status = require("lsp-status")
 
+--[[ nvim-lsp-installer settings ]]
 local lsp_installer = require("nvim-lsp-installer")
 
--- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
--- or if the server is already installed).
-lsp_installer.on_server_ready(
-    function(server)
-        local opts = {
-            capabilities = capabilities,
-            on_attach = function(client)
-                client.resolved_capabilities.document_formatting = true
-                client.resolved_capabilities.document_range_formatting = true
-            end
-        }
+local servers = {
+	"sumneko_lua",
+	"solargraph",
+}
 
-        -- (optional) Customize the options passed to the server
-        -- if server.name == "tsserver" then
-        --     opts.root_dir = function() ... end
-        -- end
+for _, name in pairs(servers) do
+	local server_is_found, server = lsp_installer.get_server(name)
+	if server_is_found and not server:is_installed() then
+		print("Installing " .. name)
+		server:install()
+	end
+end
 
-        -- This setup() function will take the provided server configuration and decorate it with the necessary properties
-        -- before passing it onwards to lspconfig.
-        -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-        server:setup(opts)
-    end
-)
+local function on_attach(client, bufnr)
+	-- Set up buffer-local keymaps (vim.api.nvim_buf_set_keymap()), etc.
+	if client.name == "solargraph" then
+		client.resolved_capabilities.document_formatting = false
+	end
+	lsp_status.on_attach(client)
+end
 
---[[ require("lspconfig").solargraph.setup(
-  {
-    autoformat = true, -- EXPERIMENTAL
-    settings = {
-      solargraph = {
-        diagnostics = true
-      }
-    }
-  }
-) ]]
+require("cmp").setup({
+	sources = {
+		{ name = "nvim_lsp" },
+	},
+})
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilities)
+
+local enhance_server_opts = {}
+
+lsp_installer.on_server_ready(function(server)
+	-- Specify the default options which we'll use to setup all servers
+	local opts = {
+		on_attach = on_attach,
+		capabilities = capabilities,
+	}
+
+	if enhance_server_opts[server.name] then
+		-- Enhance the default opts with the server-specific ones
+		enhance_server_opts[server.name](opts)
+	end
+
+	server:setup(opts)
+end)

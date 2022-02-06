@@ -6,12 +6,7 @@ These are my personal dotfiles setup.
 
 #### Mac
 ```
-brew install neovim rbenv fzf ripgrep
-```
-
-#### lua-fmt
-```
- npm install -g lua-fmt
+brew install neovim rbenv fzf ripgrep stylua
 ```
 
 ### Symlink files
