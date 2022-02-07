@@ -92,15 +92,7 @@ return packer.startup(function(use)
 	use("janko-m/vim-test")
 
 	-- automated session manager
-	use({
-		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				log_level = "info",
-				auto_session_suppress_dirs = { "~/", "~/Apps" },
-			})
-		end,
-	})
+	use("rmagatti/auto-session")
 
 	-- display the indention levels with thin vertical lines
 	use("Yggdroot/indentLine")
