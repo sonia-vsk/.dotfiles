@@ -95,8 +95,7 @@ return packer.startup(function(use)
 	-- automated session manager
 	use("rmagatti/auto-session")
 
-	-- display the indention levels with thin vertical lines
-	use("Yggdroot/indentLine")
+	use("lukas-reineke/indent-blankline.nvim")
 
 	use("folke/which-key.nvim") -- displays a popup with possible keybindings of the command you started typing
 
