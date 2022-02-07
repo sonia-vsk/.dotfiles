@@ -89,7 +89,18 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-  use("janko-m/vim-test")
+	use("janko-m/vim-test")
+
+	-- automated session manager
+	use({
+		"rmagatti/auto-session",
+		config = function()
+			require("auto-session").setup({
+				log_level = "info",
+				auto_session_suppress_dirs = { "~/", "~/Apps" },
+			})
+		end,
+	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
