@@ -11,12 +11,13 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
+    null_ls.builtins.code_actions.gitsigns,
 		formatting.prettier,
 		formatting.stylua,
- 		formatting.rubocop,
+		formatting.rubocop,
 		diagnostics.rubocop,
 		on_attach = function(client)
-				vim.cmd([[
+			vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
                 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
