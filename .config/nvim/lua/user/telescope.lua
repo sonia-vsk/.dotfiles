@@ -3,27 +3,6 @@ if not status_ok then
 	return
 end
 
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
-keymap(
-	"n",
-	"<leader>ff",
-	"<cmd>Telescope find_files find_command=fd,--hidden,--no-ignore,--exclude,*.git,--type,f<cr>",
-	opts
-)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-keymap("n", "<leader>fl", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-keymap("n", "<leader>fk", "<cmd>Telescope keymaps<cr>", opts)
-keymap("n", "<leader>fm", "<cmd>Telescope heading<cr>", opts)
-keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts)
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts)
-keymap("n", "<leader>gst", "<cmd>Telescope git_status<cr>", opts)
-keymap("n", "<leader>gss", "<cmd>Telescope git_stash<cr>", opts)
-keymap("n", "<leader>ca", "<cmd>Telescope lsp_code_actions<cr>", opts)
-
 local actions = require("telescope.actions")
 
 telescope.setup({

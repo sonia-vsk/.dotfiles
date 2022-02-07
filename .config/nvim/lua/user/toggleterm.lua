@@ -44,9 +44,3 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
-
-local ruby = Terminal:new({ cmd = "irb", hidden = true })
-
-function _RUBY_TOGGLE()
-	ruby:toggle()
-end

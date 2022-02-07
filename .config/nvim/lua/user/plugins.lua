@@ -98,6 +98,8 @@ return packer.startup(function(use)
 	-- display the indention levels with thin vertical lines
 	use("Yggdroot/indentLine")
 
+	use("folke/which-key.nvim") -- displays a popup with possible keybindings of the command you started typing
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
