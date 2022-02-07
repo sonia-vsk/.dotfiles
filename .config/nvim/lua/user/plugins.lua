@@ -89,6 +89,7 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
+	use("benmills/vimux")
 	use("janko-m/vim-test")
 
 	-- automated session manager
