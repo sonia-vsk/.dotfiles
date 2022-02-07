@@ -102,6 +102,9 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- display the indention levels with thin vertical lines
+	use("Yggdroot/indentLine")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
