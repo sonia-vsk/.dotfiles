@@ -59,7 +59,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path") -- path completions
 	use("hrsh7th/cmp-cmdline") -- cmdline completions
 	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
+	-- use("hrsh7th/cmp-nvim-lsp")
 	use("hrsh7th/cmp-nvim-lua")
 
 	-- snippets
@@ -70,9 +70,9 @@ return packer.startup(function(use)
 	use("lunarvim/darkplus.nvim")
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	-- use("neovim/nvim-lspconfig") -- enable LSP
+	-- use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	-- use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
@@ -97,6 +97,8 @@ return packer.startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 
 	use("folke/which-key.nvim") -- displays a popup with possible keybindings of the command you started typing
+	use("w0rp/ale")
+	use("othree/html5.vim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
