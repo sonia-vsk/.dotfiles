@@ -1,15 +1,11 @@
 return {
-	cmd = { "solargraph", "stdio" },
-	init_options = { formatting = true },
+	init_options = { formatting = false },
 	settings = {
 		solargraph = {
 			commandPath = "/Users/ksenijavasjko/.rbenv/shims/solargraph",
-			autoformat = true,
-			diagnostics = true,
-			completion = true,
-			references = true,
-			rename = true,
-			formatting = true,
+			autoformat = false,
+			diagnostics = false,
+			formatting = false,
 		},
 	},
 }

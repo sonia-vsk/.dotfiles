@@ -17,38 +17,36 @@ local exists_local_file = function(local_path)
 end
 
 -- Rubocop doesn't have command_resolver like eslint, so we have to do this to
--- take in account the bash configuration to run rubocop
+-- take in account the zsh configuration to run rubocop
 if exists_local_file(".rubocop.yml") and exists_local_file("Gemfile") then
-	-- table.insert(
-	-- 	null_ls_sources,
-	-- 	formatting.rubocop.with({
-	-- 		command = "bash",
-	-- 		args = { "-c", "rubocop --auto-correct -f quiet --stderr --stdin $FILENAME" },
-	-- 	})
-	-- )
-	-- table.insert(
-	-- 	null_ls_sources,
-	-- 	diagnostics.rubocop.with({
-	-- 		command = "bash",
-	-- 		args = { "-c", "rubocop -f json $FILENAME" },
-	-- 	})
-	-- )
+	table.insert(
+		null_ls_sources,
+		formatting.rubocop.with({
+			command = "zsh",
+			args = { "-c", "rubocop --auto-correct -f quiet --stderr --stdin $FILENAME" },
+		})
+	)
+	table.insert(
+		null_ls_sources,
+		diagnostics.rubocop.with({
+			command = "zsh",
+			args = { "-c", "rubocop -f json $FILENAME" },
+		})
+	)
 end
 
 table.insert(null_ls_sources, formatting.codespell)
-table.insert(null_ls_sources, formatting.crystal_format.with({ filetypes = {} }))
 table.insert(null_ls_sources, formatting.prettier)
 table.insert(null_ls_sources, formatting.stylua)
 table.insert(null_ls_sources, formatting.eslint)
 table.insert(null_ls_sources, diagnostics.eslint)
 table.insert(null_ls_sources, formatting.rustywind) -- Tailwind organizer
-table.insert(null_ls_sources, diagnostics.shellcheck)
 table.insert(null_ls_sources, completion.spell.with({ filetypes = { "markdown" } }))
 
 if #null_ls_sources ~= 0 then
 	null_ls.setup({
 		debounce = 500,
-		debug = false,
+		debug = true,
 		sources = null_ls_sources,
 		on_attach = function(client)
 			if client.resolved_capabilities.document_formatting then

@@ -1,13 +1,7 @@
 return {
 	settings = {
-		init_options = {
-			diagnostic = {
-				enable = true,
-			},
-		},
 		Lua = {
 			diagnostics = {
-				enable = true,
 				globals = { "vim" },
 			},
 			workspace = {
