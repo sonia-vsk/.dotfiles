@@ -1,11 +1,14 @@
+local util = require("lspconfig/util")
 return {
-	init_options = { formatting = false },
+	cmd = { "solargraph", "stdio" },
+	filetypes = { "ruby" },
+	init_options = {
+		formatting = true,
+	},
+	root_dir = util.root_pattern("Gemfile", ".git"),
 	settings = {
 		solargraph = {
-			commandPath = "/Users/ksenijavasjko/.rbenv/shims/solargraph",
-			autoformat = false,
-			diagnostics = false,
-			formatting = false,
+			diagnostics = true,
 		},
 	},
 }
