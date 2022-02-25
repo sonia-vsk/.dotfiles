@@ -7,7 +7,8 @@ export ZSH="/Users/ksenijavasjko/.oh-my-zsh"
 
 ZSH_THEME="dst"
 
-plugins=(rbenv git z zsh-autosuggestions ruby)
+BUNDLED_COMMANDS=(rubocop)
+plugins=(rbenv git z zsh-autosuggestions ruby bundler)
 
 source $ZSH/oh-my-zsh.sh
 
