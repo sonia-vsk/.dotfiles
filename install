@@ -4,7 +4,5 @@ echo "Installing.."
 # shell settings
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -sf ~/.dotfiles/git/.gitconfig ~/.gitconfig
-ln -sf ~/.dotfiles/.config/nvim/config ~/.config/nvim_backup/config
-ln -sf ~/.dotfiles/.config/nvim/plugins ~/.config/nvim_backup/plugins
-ln -sf ~/.dotfiles/.config/nvim/init.vim ~/.config/nvim_backup/init.vim
-ln -sf ~/.dotfiles/.config/nvim/coc-settings.json ~/.config/nvim_backup/coc-settings.json
+ln -sf ~/.dotfiles/.config/nvim ~/.config/nvim
+ln -sf ~/.dotfiles/.tmux.conf ~/.tmux.conf
