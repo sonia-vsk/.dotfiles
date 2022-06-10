@@ -3,7 +3,7 @@ do
   [ -f $DOTFILE ] && source $DOTFILE
 done
 
-export ZSH="/Users/soniavasko/.oh-my-zsh"
+export ZSH="/Users/ksenija-vasjko@cookpad.com/.oh-my-zsh"
 
 ZSH_THEME="dst"
 
@@ -23,3 +23,4 @@ export PATH="$PATH:/path/to/elixir/bin"
 export PATH="/usr/local/opt/node@14/bin:$PATH"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
