@@ -45,7 +45,7 @@ local setup = {
 	window = {
 		border = "rounded", -- none, single, double, shadow
 		position = "bottom", -- bottom, top
-		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+		margin = { 1, , 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
 		winblend = 0,
 	},
@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
+	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
 	["b"] = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
@@ -95,7 +95,6 @@ local mappings = {
 	},
 	["r"] = { "<cmd>:TestFile<cr>", "Test file" },
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>Telescope projects<cr>", "Projects" },
 	["R"] = { "<cmd>:TestNearest<cr>", "Test nearest" },
 
 	p = {
@@ -154,7 +153,6 @@ local mappings = {
 	},
 	s = {
 		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },

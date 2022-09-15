@@ -16,7 +16,6 @@ require("user.toggleterm")
 require("user.vim-test")
 require("user.indentline")
 require("user.autosession")
- require("user.whichkey")
--- require("user.ale")
+require("user.whichkey")
 
 vim.lsp.set_log_level("debug")
