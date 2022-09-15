@@ -15,8 +15,8 @@ local setup = {
 		-- No actual key bindings are created
 		presets = {
 			operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-			motions = false, -- adds help for motions
-			text_objects = false, -- help for text objects triggered after entering an operator
+			motions = true, -- adds help for motions
+			text_objects = true, -- help for text objects triggered after entering an operator
 			windows = true, -- default bindings on <c-w>
 			nav = true, -- misc bindings to work with windows
 			z = true, -- bindings for folds, spelling and others prefixed with z
@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-	["/"] = { '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', "Comment" },
+	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	["b"] = {
 		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Buffers",
@@ -181,7 +181,7 @@ local vopts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 local vmappings = {
-	["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+	["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
 }
 
 which_key.setup(setup)
