@@ -101,6 +101,10 @@ return packer.startup(function(use)
 	-- use("w0rp/ale")
 	use("othree/html5.vim")
 
+  use("tpope/vim-endwise")
+  use("tpope/vim-rails")
+  use("ntpeters/vim-better-whitespace")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

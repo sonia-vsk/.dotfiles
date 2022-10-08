@@ -15,3 +15,6 @@
 	template = ~/.stCommitMsg
 [pull]
   rebase = true
+[user]
+	name = Sonia - Ksenija Vasjko
+	email = sonia.vasjko@indeedflex.com
