@@ -52,6 +52,13 @@ cmp.setup({
 		end,
 	},
 	mapping = {
+		["<C-g>"] = cmp.mapping(function(fallback)
+			vim.api.nvim_feedkeys(
+				vim.fn["copilot#Accept"](vim.api.nvim_replace_termcodes("<Tab>", true, true, true)),
+				"n",
+				true
+			)
+		end),
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -122,12 +129,11 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-		},
+		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
-		ghost_text = true,
+		ghost_text = false, -- this feature conflict with copilot.vim's preview.
+		-- ghost_text = true,
 		native_menu = false,
 	},
 })

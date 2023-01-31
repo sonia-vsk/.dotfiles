@@ -96,6 +96,7 @@ local mappings = {
 	["r"] = { "<cmd>:TestFile<cr>", "Test file" },
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["R"] = { "<cmd>:TestNearest<cr>", "Test nearest" },
+	["S"] = { "<cmd>:RSpec --only-failures<cr>", "Last Failed Test" },
 
 	p = {
 		name = "Packer",

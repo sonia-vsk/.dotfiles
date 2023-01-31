@@ -1,7 +1,7 @@
 [include]
   path = ~/.gitconfig.local
 [core]
-	excludesfile = /Users/ksenija-vasjko@cookpad.com/.gitignore
+	excludesfile = /Users/sonia/.gitignore_global
 	trustctime = false
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

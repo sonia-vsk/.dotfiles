@@ -8,7 +8,7 @@ export ZSH="/Users/sonia/.oh-my-zsh"
 ZSH_THEME="dst"
 
 BUNDLED_COMMANDS=(rubocop)
-plugins=(rbenv git z zsh-autosuggestions ruby bundler)
+plugins=(git z zsh-autosuggestions ruby bundler)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,6 +26,8 @@ export PATH="/usr/local/opt/node@14/bin:$PATH"
 export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+

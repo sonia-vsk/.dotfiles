@@ -18,5 +18,6 @@ require("user.indentline")
 require("user.autosession")
 require("user.whichkey")
 require("user.better_whitespace")
+require("user.copilot")
 
 vim.lsp.set_log_level("debug")
