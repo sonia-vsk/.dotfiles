@@ -6,7 +6,10 @@ These are my personal dotfiles setup.
 
 #### Mac
 ```
-brew install neovim rbenv fzf ripgrep lazygit stylua
+brew install neovim rbenv fzf ripgrep lazygit stylua when
+brew tap homebrew/command-not-found
+brew tap homebrew/cask-fonts
+brew install font-hack-nerd-font
 ```
 
 ### Symlink files
