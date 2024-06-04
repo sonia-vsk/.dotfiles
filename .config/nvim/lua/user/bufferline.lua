@@ -5,132 +5,133 @@ end
 
 bufferline.setup({
   options = {
-    numbers = "none",                  -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-    close_command = "Bdelete! %d",     -- can be a string | function, see "Mouse actions"
-    right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-    left_mouse_command = "buffer %d",  -- can be a string | function, see "Mouse actions"
-    middle_mouse_command = nil,        -- can be a string | function, see "Mouse actions"
+    numbers = "none",
+    close_command = "Bdelete! %d",
+    right_mouse_command = "Bdelete! %d",
+    left_mouse_command = "buffer %d",
+    middle_mouse_command = nil,
 
+    -- VSCode-style indicators and icons
     indicator = { style = "icon", icon = "▎" },
-    buffer_close_icon = "",
+    buffer_close_icon = "󰅖",
     modified_icon = "●",
-    close_icon = "",
-    left_trunc_marker = "",
-    right_trunc_marker = "",
+    close_icon = "",
+    left_trunc_marker = "",
+    right_trunc_marker = "",
 
-    max_name_length = 30,
-    max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+    max_name_length = 18,
+    max_prefix_length = 15,
     tab_size = 21,
-    diagnostics = false,  -- | "nvim_lsp" | "coc",
+    diagnostics = "nvim_lsp",
     diagnostics_update_in_insert = false,
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      local icon = level:match("error") and " " or " "
+      return " " .. icon .. count
+    end,
 
-    offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+    -- VSCode-style offsets
+    offsets = {
+      {
+        filetype = "NvimTree",
+        text = "󰄛 Explorer",
+        text_align = "left",
+        separator = true
+      }
+    },
+    
     show_buffer_icons = true,
     show_buffer_close_icons = true,
     show_close_icon = true,
     show_tab_indicators = true,
-    persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-    -- can also be a table containing 2 custom separators
-    -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
-    enforce_regular_tabs = true,
+    persist_buffer_sort = true,
+    separator_style = "thin", -- VSCode-like thin separators
+    enforce_regular_tabs = false,
     always_show_bufferline = true,
-    -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
-    --   -- add custom logic
-    --   return buffer_a.modified > buffer_b.modified
-    -- end
+    hover = {
+      enabled = true,
+      delay = 200,
+      reveal = {'close'}
+    },
   },
+  
+  -- VSCode-inspired color scheme
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = "#7C7C7C",
+      bg = "#252526",
     },
     background = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    -- buffer_selected = {
-    --   fg = {attribute='fg',highlight='#ff0000'},
-    --   bg = {attribute='bg',highlight='#0000ff'},
-    --   gui = 'none'
-    --   },
-    buffer_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-
-    close_button = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    close_button_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-    },
-    -- close_button_selected = {
-    --   fg = {attribute='fg',highlight='TabLineSel'},
-    --   bg ={attribute='bg',highlight='TabLineSel'}
-    --   },
-
-    tab_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
     },
     tab = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
     },
-    tab_close = {
-      -- fg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "Normal" },
+    tab_selected = {
+      fg = "#FFFFFF",
+      bg = "#1E1E1E",
     },
-
-    duplicate_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" },
-      italic = true,
+    buffer_visible = {
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
     },
-    duplicate_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+    buffer_selected = {
+      fg = "#FFFFFF",
+      bg = "#1E1E1E",
+      bold = false,
+      italic = false,
     },
-    duplicate = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
-    },
-
     modified = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
     },
     modified_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = "#FFFFFF",
+      bg = "#1E1E1E",
     },
-    modified_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+    duplicate_selected = {
+      fg = "#FFFFFF",
+      bg = "#1E1E1E",
+      italic = false,
     },
-
-    separator = {
-      fg = { attribute = "bg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+    duplicate_visible = {
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
+      italic = false,
+    },
+    duplicate = {
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
+      italic = false,
     },
     separator_selected = {
-      fg = { attribute = "bg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = "#1E1E1E",
+      bg = "#1E1E1E",
     },
-    -- separator_visible = {
-    --   fg = {attribute='bg',highlight='TabLine'},
-    --   bg = {attribute='bg',highlight='TabLine'}
-    --   },
+    separator_visible = {
+      fg = "#2D2D30",
+      bg = "#2D2D30",
+    },
+    separator = {
+      fg = "#2D2D30",
+      bg = "#2D2D30",
+    },
     indicator_selected = {
-      fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = "#007ACC",
+      bg = "#1E1E1E",
+    },
+    close_button = {
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
+    },
+    close_button_visible = {
+      fg = "#9D9D9D",
+      bg = "#2D2D30",
+    },
+    close_button_selected = {
+      fg = "#FFFFFF",
+      bg = "#1E1E1E",
     },
   },
 })

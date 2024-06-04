@@ -4,5 +4,6 @@ if not status_ok then
 end
 
 require("user.lsp.mason")
+require("user.lsp.none-ls")
 require("user.lsp.handlers").setup()
-require("user.lsp.null-ls")
+-- Ruby LSP settings are now handled in mason.lua

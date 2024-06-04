@@ -1,89 +1,65 @@
--- local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
--- if not status_ok then
--- 	return
--- end
---
--- -- Register a handler that will be called for all installed servers.
--- -- Alternatively, you may also register handlers on specific server instances instead (see example below).
--- lsp_installer.on_server_ready(function(server)
--- 	local opts = {
--- 		on_attach = require("user.lsp.handlers").on_attach,
--- 		capabilities = require("user.lsp.handlers").capabilities,
--- 	}
---
--- 	if server.name == "jsonls" then
--- 		local jsonls_opts = require("user.lsp.settings.jsonls")
--- 		opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
--- 	end
---
--- 	if server.name == "sumneko_lua" then
--- 		local sumneko_opts = require("user.lsp.settings.sumneko_lua")
--- 		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
--- 	end
---
--- 	if server.name == "solargraph" then
--- 		local solargraph_opts = require("user.lsp.settings.solargraph")
--- 		opts = vim.tbl_deep_extend("force", solargraph_opts, opts)
--- 	end
---
--- 	-- This setup() function is exactly the same as lspconfig's setup function.
--- 	-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- 	if server.name == "solargraph" then
--- 		require("lspconfig")["solargraph"].setup(opts)
--- 	else
--- 		server:setup(opts)
--- 	end
--- end)
---
-local servers = {
-	"lua_ls",
-	-- "cssls",
-	-- "html",
-	-- "tsserver",
-	"solargraph",
-	-- "bashls",
-	"jsonls",
-	-- "yamlls",
-}
-
+-- user/lsp/mason.lua
 local settings = {
-	ui = {
-		border = "none",
-		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
-		},
-	},
-	log_level = vim.log.levels.INFO,
-	max_concurrent_installers = 4,
+  PATH = "prepend",
+  ui = { border = "none", icons = { installed="◍", pending="◍", uninstalled="◍" } },
+  log_level = vim.log.levels.INFO,
+  max_concurrent_installers = 4,
 }
 
 require("mason").setup(settings)
+local capabilities = require("cmp_nvim_lsp").default_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+
+local servers = {
+  lua_ls    = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+            [vim.fn.stdpath("config") .. "/lua"] = true,
+          },
+        },
+      },
+    },
+  },
+  ruby_lsp  = {
+    init_options = { formatter = "auto" },
+    settings = {
+      ruby_lsp = {
+        autoformat   = true,
+        diagnostics  = true,
+        completion   = true,
+        folding      = true,
+        references   = true,
+        rename       = true,
+        symbols      = true,
+      },
+    },
+  },
+  jsonls    = require("user.lsp.settings.jsonls"),
+  yamlls    = {},
+  ltex      = {},
+}
+
 require("mason-lspconfig").setup({
-	ensure_installed = servers,
-	automatic_installation = true,
+  ensure_installed = vim.tbl_keys(servers),
+  automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
+local on_attach = require("user.lsp.handlers").on_attach
+for name, opts in pairs(servers) do
+  require("lspconfig")[name].setup(vim.tbl_deep_extend("force", {
+    capabilities = capabilities,
+    on_attach    = on_attach,
+  }, opts))
 end
 
-local opts = {}
-
-for _, server in pairs(servers) do
-	opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
-	}
-
-	server = vim.split(server, "@")[1]
-
-	local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
-	if require_ok then
-		opts = vim.tbl_deep_extend("force", conf_opts, opts)
-	end
-
-	lspconfig[server].setup(opts)
-end
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.rb",
+  callback = function() vim.lsp.buf.format({ timeout_ms = 2500 }) end,
+})
