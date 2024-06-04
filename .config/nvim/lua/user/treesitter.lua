@@ -1,5 +1,10 @@
 local M = {}
 function M.config()
+	-- Configure folding
+	vim.opt.foldmethod = "expr"
+	vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+	vim.opt.foldenable = false -- disable folding by default
+
 	local treesitter = require("nvim-treesitter")
 	local configs = require("nvim-treesitter.configs")
 
@@ -16,6 +21,13 @@ function M.config()
 			"git_rebase",
 			"gitcommit",
 			"gitignore",
+			"c", 
+			"vim", 
+			"vimdoc", 
+			"query", 
+			"yaml", 
+			"sql", 
+			"tmux"
 		}, -- put the language you want in this array
 		ignore_install = { "" }, -- List of parsers to ignore installing
 		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
